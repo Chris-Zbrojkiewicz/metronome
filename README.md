@@ -1,156 +1,29 @@
-# 🎵 The Metronome
+# The Metronome
 
-> A fast, modern, and accessible metronome built with **Vite**, **React**, and **Tailwind CSS**.
-
-![License](https://img.shields.io/github/license/Chris-Z-85/metronome_gg)
-![Issues](https://img.shields.io/github/issues/Chris-Z-85/metronome_gg)
-![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
-
----
-
-## 📸 Demo
-
-👉 **[Try it live here](https://metronome-gg.netlify.app/)**
-
----
-
-## ✨ Features
-
-- 🎛️ **Adjustable BPM & Time Signature**
-- 🎵 **Audible Beats** — Click sounds
-- 🟢 **Visual Beat Indicator** — Follows the tempo precisely
-- 🌙 **Dark & Light Mode**
-- 📱 **Fully Responsive** — Looks great on desktop & mobile
-- ♿️ **Accessible** — ARIA labels, keyboard-friendly
-
----
-
-## ⚙️ Tech Stack
-
-- [Vite](https://vitejs.dev/) — Next-gen build tool
-- [React](https://react.dev/) — Modern UI library
-- [Tailwind CSS](https://tailwindcss.com/) — Utility-first styling
-- [react-icons](https://react-icons.github.io/react-icons/) — Icon library
-- [ESLint](https://eslint.org/) + [Prettier](https://prettier.io/) — Consistent code style
-
----
-
-## 🖥️ Screenshots
+The Metronome is a browser-based timing tool designed for musicians who want precise, reliable tempo control during practice. It supports adjustable BPM and subdivisions to accommodate different practice styles and rhythms. The project was built to explore accurate audio scheduling in the browser and predictable state management for time-sensitive interactions.
 
 | Light Mode                              | Dark Mode                             |
 | --------------------------------------- | ------------------------------------- |
 | ![Light Mode](./screenshots/light.webp) | ![Dark Mode](./screenshots/dark.webp) |
 
----
+## Deployed
 
-## 🚀 Getting Started
+[https://the-metronome.netlify.app](https://the-metronome.netlify.app/)
 
-### 1️⃣ Clone the repo
 
-```bash
-git clone https://github.com/Chris-Z-85/metronome_gg.git
-cd metronome_gg
-```
+## Features
 
-### 2️⃣ Install dependencies
+- Adjustable BPM and time signature
+- Accurate audio click scheduling
+- Visual beat indicator aligned with audio timing
+- Light and dark mode support
+- Responsive layout across desktop and mobile devices
+- Accessible UI with ARIA attributes and keyboard navigation
 
-```bash
-npm install
-# or
-pnpm install
-```
 
-### 3️⃣ Run locally
+## Tech Stack
 
-```bash
-npm run dev
-```
-
-### 4️⃣ Build for production
-
-```bash
-npm run build
-```
-
-### 5️⃣ Preview production build
-
-```bash
-npm run preview
-```
-
-## Project Structure
-
-- `src/` — Main source code
-  - `components/` — UI components (Metronome, BpmPicker, ThemeToggle, etc.)
-  - `hooks/` — Custom React hooks
-  - `lib/` — Utility functions
-  - `utils/` — Audio and other helpers
-  - `App.tsx` — Main app component
-  - `main.tsx` — Entry point
-  - `index.css` — Base styles
-- `public/` — Static assets
-- `index.html` — HTML template
-
-## ♿ Accessibility
-
-Semantic HTML tags
-
-Interactive elements have aria-labels
-
-Icons with accessible descriptions or aria-hidden
-
-Usable via keyboard
-
-## 🗂️ TODO
-
-✅ Basic metronome functionality
-
-⏳ Add advanced time signature support
-
-⏳ Save settings to local storage
-
-⏳ Add user-configurable sound packs
-
-Feel free to pick an open issue or submit your ideas!
-
-## 🤝 Contributing
-
-Contributions are welcome!
-
-Fork the repo
-
-Create a new branch (git checkout -b feature/my-feature)
-
-Commit your changes
-
-Push to your fork (git push origin feature/my-feature)
-
-Open a Pull Request
-
-See CONTRIBUTING.md for more details.
-
-## 📃 License
-
-This project is licensed under the MIT License — see LICENSE for details.
-
-## 🙋‍♂️ Author
-
-Chris Z
-📧 chris.z@aol.com
-🌐 https://chris-z.dev/
-🐙 GitHub: Chris-Z-85
-
-## ⭐️ Show Your Support
-
-If you find this project helpful:
-
-## ⭐️ Star this repo
-
-🍴 Fork it
-
-🗣️ Share it with fellow musicians!
-
-## 📣 Feedback
-
-Got feedback or feature requests?
-Open an issue — I’d love to hear your ideas!
+- React
+- Typescript
+- Vite
+- Web Audio API
