@@ -45,7 +45,7 @@ const Metronome: React.FC<MetronomeProps> = ({
   };
 
   return (
-    <div className="relative w-full max-w-[650px] mx-auto ">
+    <div className="relative w-full max-w-[650px] mx-auto">
       <MetronomeOutline />
       <div className="absolute inset-0 flex flex-col">
         <div className="flex flex-col justify-evenly items-center flex-[7] w-full max-w-[80%] px-4 sm:px-8 md:px-12 mx-auto">

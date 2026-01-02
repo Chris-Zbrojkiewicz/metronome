@@ -75,6 +75,16 @@ const MetronomeOutline = ({ className }: LogoProps) => {
 
         {/* Sheen */}
         <path d={d} fill={`url(#${sheenId})`} />
+
+         {/* Simple gray outline */}
+      <path
+        d={d}
+        fill="none"
+        stroke="#333"
+        strokeWidth={20}
+        strokeLinejoin="round"
+        strokeLinecap="round"
+      />
       </g>
     </svg>
   );
