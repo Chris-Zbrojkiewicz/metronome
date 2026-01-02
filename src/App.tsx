@@ -1,6 +1,5 @@
 import Metronome from './components/Metronome';
 import { useMetronome } from './hooks/useMetronome';
-import { ThemeProvider } from '@/components/theme-provider';
 import { ThemeToggle } from '@/components/theme-toggle';
 
 function App() {
@@ -17,7 +16,6 @@ function App() {
   } = useMetronome();
 
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <div className="flex flex-col items-center justify-center h-screen">
         <ThemeToggle isCollapsed={true} />
         <Metronome
@@ -35,7 +33,6 @@ function App() {
         © 2025 <a href="https://chris-z.dev/" target="_blank" rel="noopener noreferrer" className="hover:text-primary">Chris Zbrojkiewicz</a>
       </footer>
       </div>
-    </ThemeProvider>
   );
 }
 
