@@ -1,4 +1,4 @@
-# Contributing to metronome_gg
+# Contributing to metronome
 
 🎉 First off, thanks for taking the time to contribute! 🎉
 
@@ -14,7 +14,7 @@ The following is a set of guidelines to help you make the best contributions pos
 2. **Clone your fork**
 
    ```bash
-   git clone https://github.com/Chris-Z-85/metronome_gg.git
+   git clone https://github.com/Chris-Zbrojkiewicz/metronome.git
 
 
    ```
@@ -67,4 +67,4 @@ If you find a bug, want to request a feature, or have a question:
 Open an issue on GitHub Issues
 
 ❤️ Thank You!
-Your contributions help make metronome_gg better for everyone!
+Your contributions help make metronome better for everyone!
