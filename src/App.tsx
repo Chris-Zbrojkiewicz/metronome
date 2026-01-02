@@ -18,7 +18,7 @@ function App() {
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <div className="flex flex-col justify-center items-center h-screen">
+      <div className="flex flex-col items-center justify-center h-screen">
         <ThemeToggle isCollapsed={true} />
         <Metronome
           bpm={bpm}
@@ -31,18 +31,9 @@ function App() {
           onBpmChange={setBpm}
           onTimeSignatureChange={setTimeSignature}
         />
-        <footer className="text-center text-sm text-muted-foreground py-4">
-          © 2025{' '}
-          <a
-            href="https://chris-z.dev/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className=" hover:text-primary"
-          >
-            Chris Z.
-          </a>{' '}
-          — Made in 🇩🇰 Denmark
-        </footer>
+      <footer className="w-full py-2 text-xs text-center sm:text-sm text-muted-foreground sm:py-4">
+        © 2025 <a href="https://chris-z.dev/" target="_blank" rel="noopener noreferrer" className="hover:text-primary">Chris Zbrojkiewicz</a>
+      </footer>
       </div>
     </ThemeProvider>
   );
