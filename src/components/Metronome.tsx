@@ -6,6 +6,7 @@ import PlayButton from './PlayButton';
 import BeatBox from './BeatBox';
 import Timer from './Timer';
 import Metrum from './Metrum';
+import MetronomeShell from './MetronomeShell';
 
 interface MetronomeProps {
   bpm: number;
@@ -45,28 +46,30 @@ const Metronome: React.FC<MetronomeProps> = ({
   };
 
   return (
-    <div className="relative w-full max-w-[650px] mx-auto">
-      <MetronomeOutline />
-      <div className="absolute inset-0 flex flex-col">
-        <div className="flex flex-col justify-evenly items-center flex-[7] w-full max-w-[80%] px-4 sm:px-8 md:px-12 mx-auto">
-          <BpmPicker bpm={bpm} setBpm={handleBpmChange} />
-          <PlayButton
-            isPlaying={isPlaying}
-            onStart={handleStart}
-            onStop={onStop}
-          />
-          <Timer isPlaying={isPlaying} key={timerKey} />
+    <div className="relative w-full max-w-[650px] mx-auto metronome-wrap">
+      <MetronomeShell>
+        <MetronomeOutline className="absolute inset-0 pointer-events-none" />
+        <div className="absolute inset-0 flex flex-col">
+          <div className="flex flex-col justify-evenly items-center flex-[7] w-full max-w-[80%] px-4 sm:px-8 md:px-12 mx-auto">
+            <BpmPicker bpm={bpm} setBpm={handleBpmChange} />
+            <PlayButton
+              isPlaying={isPlaying}
+              onStart={handleStart}
+              onStop={onStop}
+            />
+            <Timer isPlaying={isPlaying} key={timerKey} />
+          </div>
+          <div className="flex flex-col justify-evenly items-center flex-[3] w-full max-w-[80%] px-4 sm:px-8 md:px-12 mx-auto">
+            <Metrum currentBeat={currentBeat} beats={beats} />
+            <BeatBox beats={beats} currentBeat={currentBeat} />
+            <TimeSignaturePicker
+              beats={beats}
+              beatUnit={beatUnit}
+              onTimeSignatureChange={onTimeSignatureChange}
+            />
+          </div>
         </div>
-        <div className="flex flex-col justify-evenly items-center flex-[3] w-full max-w-[80%] px-4 sm:px-8 md:px-12 mx-auto">
-          <Metrum currentBeat={currentBeat} beats={beats} />
-          <BeatBox beats={beats} currentBeat={currentBeat} />
-          <TimeSignaturePicker
-            beats={beats}
-            beatUnit={beatUnit}
-            onTimeSignatureChange={onTimeSignatureChange}
-          />
-        </div>
-      </div>
+      </MetronomeShell>
     </div>
   );
 };
