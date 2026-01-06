@@ -1,5 +1,4 @@
 import React from "react";
-import { GiGClef } from "react-icons/gi";
 
 interface TimeSignaturePickerProps {
   beats: number;
@@ -20,19 +19,18 @@ const TimeSignaturePicker: React.FC<TimeSignaturePickerProps> = ({
   onTimeSignatureChange,
 }) => {
   return (
-    <div className="flex gap-2 justify-center items-center md:m-4">
-      <GiGClef aria-hidden="true" className="size-6 md:size-10" />
+    <div className="flex items-center justify-center gap-5 md:gap-10 md:m-4">
       {commonTimeSignatures.map((ts) => (
         <div
           key={`${ts.beats}/${ts.beatUnit}`}
           onClick={() => onTimeSignatureChange(ts.beats, ts.beatUnit)}
           className={
-            `flex py-2 flex-col border-[hsl(var(--foreground))] justify-center items-center w-8 h-8 md:w-12 md:h-12 text-xs md:text-lg font-medium rounded-lg border-2 cursor-pointer text-[hsl(var(--background))] ` +
-            `${beats === ts.beats && beatUnit === ts.beatUnit ? "bg-gray-500" : "bg-[hsl(var(--foreground))]"}`
+            ` button-base flex py-2 flex-col justify-center items-center w-8 h-8 md:w-10 md:h-10 text-zinc-400 text-sm md:text-lg font-medium rounded-lg cursor-pointer ` +
+            `${beats === ts.beats && beatUnit === ts.beatUnit ? "button-pressed" : ""}`
           }
         >
           <span>{ts.beats} </span>
-          <span className="-mt-1 md:-mt-3">{ts.beatUnit}</span>
+          <span className="-mt-2 md:-mt-3">{ts.beatUnit}</span>
         </div>
       ))}
     </div>

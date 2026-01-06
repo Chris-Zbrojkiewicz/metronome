@@ -1,4 +1,4 @@
-import { FaMoon, FaSun } from "react-icons/fa";
+import { LuMoon, LuSun } from "react-icons/lu";
 import { useTheme } from "next-themes";
 
 interface ThemeToggleProps {
@@ -15,9 +15,9 @@ export function ThemeToggle({ isCollapsed }: ThemeToggleProps) {
         className={`flex items-center gap-3 ml-auto p-2 sm:p-7 ${isCollapsed ? "justify-center" : ""}`}
       >
         {theme === "light" ? (
-          <FaMoon aria-label="Switch to dark mode" />
+          <LuMoon aria-label="Switch to dark mode" />
         ) : (
-          <FaSun aria-label="Switch to light mode" />
+          <LuSun aria-label="Switch to light mode" />
         )}
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { FaRegClock } from "react-icons/fa6";
+import { IoHourglassOutline } from "react-icons/io5";
 
 interface TimerProps {
   isPlaying: boolean;
@@ -34,14 +34,14 @@ const Timer: React.FC<TimerProps> = ({ isPlaying }) => {
   }, [isPlaying]);
 
   return (
-    <div className="flex items-center font-mono md:text-3xl rounded-lg border-4 border-[hsl(var(--foreground))] lcd-font bg-[hsl(var(--foreground))] text-[hsl(var(--background))]  w-fit">
+    <div className="flex items-center font-mono text-zinc-400 md:text-xl lcd-font max-w-3xs md:m-3 w-[85px] h-[30px]">
       <span className="inline-flex items-center">
-        <FaRegClock
+        <IoHourglassOutline
           aria-hidden="true"
-          className="mx-2 w-5 h-5 md:mx-4 md:w-7 md:h-7"
+          className="w-3 h-3 mr-1 md:mr-2 md:w-5 md:h-5"
         />
       </span>
-      <span className="px-3 py-1 align-middle bg-[hsl(var(--background))] text-[hsl(var(--foreground))] w-fit">
+      <span className="align-middle glow">
         {formatTime(elapsed)}
       </span>
     </div>

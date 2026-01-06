@@ -7,51 +7,20 @@ body,
   margin: 0;
   min-height: 100vh;
   width: 100%;
+  background-color: var(--page-bg);
+  color: var(--text-default);
 }
 
 :root {
-  --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
-  --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
-  --primary: 222.2 47.4% 11.2%;
-  --primary-foreground: 210 40% 98%;
-  --secondary: 210 40% 96.1%;
-  --secondary-foreground: 222.2 47.4% 11.2%;
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 222.2 47.4% 11.2%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 222.2 84% 4.9%;
-  --radius: 0.5rem;
+  --page-bg: #000000;
+  --text-default: #fafafa;
+  --text-muted: #818188;
 }
 
-.dark {
-  --background: 222.2 84% 4.9%;
-  --foreground: 210 40% 98%;
-  --card: 222.2 84% 4.9%;
-  --card-foreground: 210 40% 98%;
-  --popover: 222.2 84% 4.9%;
-  --popover-foreground: 210 40% 98%;
-  --primary: 210 40% 98%;
-  --primary-foreground: 222.2 47.4% 11.2%;
-  --secondary: 217.2 32.6% 17.5%;
-  --secondary-foreground: 210 40% 98%;
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
-  --accent: 217.2 32.6% 17.5%;
-  --accent-foreground: 210 40% 98%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
-  --ring: 212.7 26.8% 83.9%;
+.light {
+  --page-bg: #ffffff;
+  --text-default: #000000;
+  --text-muted: #000000;
 }
 
 @font-face {
@@ -59,50 +28,59 @@ body,
   src: url('/fonts/Digital7.woff2') format('woff2');
 }
 
+.display {
+  border-radius: clamp(13px, 2.5vw, 26px);
+  padding: clamp(13px, 2.5vw, 26px) clamp(10px, 2vw, 20px);
+  background: radial-gradient(circle at 20% 0%, #222 0, #050505 55%, #000 100%);
+  box-shadow:
+    inset 0 0 0 2px #111,
+    inset 0 14px 26px rgba(255, 255, 255, 0.06),
+    inset 0 -18px 26px rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
+
 .lcd-font {
   font-family: 'Digital7', monospace;
   text-align: center;
 }
 
-.metronome-3d {
-  width: min(90vw, 520px);
-  height: min(90vh, 860px);
-  aspect-ratio: 520 / 860;
+.metronome-wrap {
+  filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.9));
+}
 
-  border-radius: 0;
+.glow {
+  color: #5df28c;
+  text-shadow:
+    0 0 8px rgba(93, 242, 140, 0.8),
+    0 0 18px rgba(93, 242, 140, 0.7);
+}
+
+.glow-box {
+  background: radial-gradient(
+    circle at center,
+    rgba(93, 242, 140, 0.25) 0%,
+    rgba(93, 242, 140, 0.1) 45%,
+    rgba(93, 242, 140, 0) 70%
+  );
   box-shadow:
-    0 30px 70px rgba(0, 0, 0, 0.92),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05),
-    inset 0 -14px 28px rgba(0, 0, 0, 0.65);
+    0 0 6px rgba(93, 242, 140, 0.9),
+    0 0 16px rgba(93, 242, 140, 0.7),
+    inset 0 0 4px rgba(93, 242, 140, 0.35);
+}
 
-  border: none;
-  padding: clamp(12px, 2vw, 22px);
+.button-base {
   position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at 30% 0%, #707070, #2b2b2b 70%);
   overflow: hidden;
 }
 
-.metronome-3d::before {
-  content: '';
-  position: absolute;
-
-  top: clamp(4px, 0.6vw, 8px);
-  left: 10%;
-  right: 10%;
-  height: clamp(18px, 2.4vw, 36px);
-
-  background: radial-gradient(
-    ellipse at top center,
-    rgba(255, 255, 255, 0.16) 0%,
-    rgba(255, 255, 255, 0.09) 38%,
-    rgba(255, 255, 255, 0.03) 65%,
-    rgba(255, 255, 255, 0) 100%
-  );
-
-  filter: blur(0.6px);
-  opacity: 0.9;
-  pointer-events: none;
-}
-
-.metronome-wrap {
-  filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.9));
+.button-pressed {
+  background: radial-gradient(circle at 50% 80%, #3a3a3a, #1a1a1a 75%);
 }
