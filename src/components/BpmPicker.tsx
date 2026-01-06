@@ -82,13 +82,13 @@ const BpmPicker: React.FC<BpmPickerProps> = ({
   };
 
   return (
-    <div className="flex flex-col items-center w-full h-64 select-none sm:h-80 md:h-96">
-      <div className="px-2 md:px-3 py-1 m-2 text-sm uppercase rounded-lg sm:m-4 md:m-6 lg:m-8 md:text-lg bg-[hsl(var(--foreground))] text-[hsl(var(--background))]">
+    <div className="flex flex-col items-center select-none">
+      <div className="px-2 text-xs uppercase border rounded-lg md:py-1 md:m-2 border-zinc-400 text-zinc-400 md:text-sm">
         <p>Tempo</p>
       </div>
       <FaChevronUp
         aria-label="Increase the BPM"
-        className="w-10 h-10 cursor-pointer"
+        className="w-10 h-10 mt-3 cursor-pointer md:mt-5 text-zinc-400"
         onMouseDown={startIncrement}
         onMouseUp={stopInterval}
         onMouseLeave={stopInterval}
@@ -101,14 +101,13 @@ const BpmPicker: React.FC<BpmPickerProps> = ({
         onWheel={handleWheel}
         ref={listRef}
       >
-        <div className="flex absolute top-0 left-0 flex-col justify-center items-stretch w-full h-full transition-all duration-200 lcd-font">
+        <div className="flex flex-col items-stretch justify-center w-full h-full transition-all duration-200 lcd-font">
           <div className="flex justify-center w-full">
             <div
-              className="text-6xl md:text-8xl group relative"
+              className="relative text-6xl md:text-8xl group glow"
               style={{
                 textAlign: 'center',
                 display: 'inline-block',
-                margin: '0.2em 0',
                 cursor: 'pointer',
               }}
               onClick={handleBpmClick}
@@ -124,23 +123,23 @@ const BpmPicker: React.FC<BpmPickerProps> = ({
                     onBlur={handleBpmChange}
                     onKeyDown={handleKeyDown}
                     autoFocus
-                    className="bg-transparent text-center outline-none text-6xl md:text-8xl appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                    style={{ MozAppearance: 'textfield', width: '5.5ch' }}
+                    className="glow bg-transparent text-center outline-none text-6xl md:text-8xl appearance-none caret-transparent
+             [&::-webkit-outer-spin-button]:appearance-none
+             [&::-webkit-inner-spin-button]:appearance-none"
+                    style={{ MozAppearance: "textfield", width: "5.5ch" }}
                     min={min}
                     max={max}
                   />
                   {isEditing &&
                     tempBpm !== '' &&
                     (Number(tempBpm) < min || Number(tempBpm) > max) && (
-                      <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 px-3 py-1 text-sm font-mono bg-[hsl(var(--foreground))] text-[hsl(var(--background))] rounded whitespace-nowrap shadow z-50 transition-opacity duration-200 opacity-100">
-                        BPM must be between {min} and {max}
-                      </div>
+                      <div className="absolute md:inset-x-0 -inset-x-full w-[200px] mx-auto text-sm duration-200 md:text-lg md:w-fit">BPM must be between {min} and {max}</div>
                     )}
                 </div>
               ) : (
                 <>
                   {bpm}
-                  <FaPen className="absolute -right-6 top-1/2 -translate-y-1/2 w-4 h-4 opacity-0 group-hover:opacity-70 transition-opacity" />
+                  <FaPen className="absolute w-4 h-4 transition-opacity -translate-y-1/2 opacity-0 -right-6 top-1/2 group-hover:opacity-70" />
                 </>
               )}
             </div>
@@ -149,7 +148,7 @@ const BpmPicker: React.FC<BpmPickerProps> = ({
       </div>
       <FaChevronDown
         aria-label="Decrease the BPM"
-        className="w-10 h-10 cursor-pointer"
+        className="w-10 h-10 mb-3 cursor-pointer md:mb-5 text-zinc-400"
         onMouseDown={startDecrement}
         onMouseUp={stopInterval}
         onMouseLeave={stopInterval}
@@ -157,12 +156,12 @@ const BpmPicker: React.FC<BpmPickerProps> = ({
         onTouchEnd={stopInterval}
         onTouchCancel={stopInterval}
       />
-      <div className="flex justify-center items-center mt-4">
-        <span className="px-2 md:px-3 py-1 m-2 text-sm uppercase rounded-lg sm:m-4 md:m-6 lg:m-8 md:text-lg bg-[hsl(var(--foreground))] text-[hsl(var(--background))]">
+      <div className="flex items-center justify-center">
+        <span className="px-2 text-xs uppercase border rounded-lg md:py-1 md:m-2 border-zinc-400 text-zinc-400 md:text-sm">
           BPM
         </span>
       </div>
-    </div>
+    </div >
   );
 };
 

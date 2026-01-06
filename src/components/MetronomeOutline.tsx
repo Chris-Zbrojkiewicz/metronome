@@ -1,28 +1,62 @@
-const MetronomeOutline = () => {
+import { useId } from "react";
+
+type MetronomeOutlineProps = {
+  className?: string;
+};
+
+const MetronomeOutline = ({ className }: MetronomeOutlineProps) => {
+  const uid = useId();
+  const bodyId = `metronome-body-${uid}`;
+  const sheenId = `metronome-sheen-${uid}`;
+
+  const d = `
+    M 220 40
+    Q 220 0 260 0
+    H 740
+    Q 780 0 780 40
+
+    L 900 1260
+    Q 920 1380 820 1380
+    H 180
+    Q 80 1380 100 1260
+
+    Z
+  `;
+
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 986 1417"
+      viewBox="0 -12 1000 1412"
       preserveAspectRatio="xMidYMid meet"
-      style={{ width: "100%", height: "100%", display: "block" }}
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
     >
-      <g transform="translate(0,1417) scale(0.1,-0.1)" fill="currentColor">
-        <path
-          d="M3801 14144 c-128 -34 -257 -149 -308 -276 -26 -62 -889 -3354 -1549
-              -5908 -103 -399 -191 -732 -196 -740 -20 -37 -1738 -6641 -1744 -6705 -7 -80
-              11 -167 52 -253 36 -74 134 -170 219 -212 l70 -35 4545 -5 c2500 -3 4565 -2
-              4590 2 124 21 261 131 324 259 50 104 63 179 49 277 -7 42 -122 498 -256 1012
-              -134 514 -249 960 -255 990 -7 30 -37 143 -67 250 -30 107 -689 2625 -1465
-              5595 -776 2970 -1420 5425 -1432 5455 -40 103 -117 191 -216 247 -117 66 -59
-              63 -1237 62 -903 0 -1078 -3 -1124 -15z m2139 -264 c75 -11 134 -47 161 -100
-              14 -28 2483 -9447 2505 -9560 l7 -30 -3682 0 c-3345 0 -3681 1 -3681 16 0 24
-              798 3074 815 3114 20 48 86 296 90 341 6 68 1586 6093 1607 6126 24 41 67 72
-              121 89 33 10 246 13 1017 13 553 0 1003 -3 1040 -9z m2754 -9987 c17 -59 876
-              -3355 881 -3384 15 -79 -39 -174 -120 -210 -38 -18 -208 -19 -4525 -19 -4341
-              0 -4486 1 -4526 19 -55 25 -101 83 -115 146 -10 46 -9 63 15 156 57 220 857
-              3285 861 3297 4 9 765 12 3764 12 3572 0 3760 -1 3765 -17z"
-        />
-      </g>
+      <defs>
+        <linearGradient id={bodyId} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#121212" />
+          <stop offset="100%" stopColor="#050505" />
+        </linearGradient>
+
+        <radialGradient id={sheenId} cx="50%" cy="0%" r="70%">
+          <stop offset="0%" stopColor="#ffffff" stopOpacity="0.18" />
+          <stop offset="40%" stopColor="#ffffff" stopOpacity="0.10" />
+          <stop offset="70%" stopColor="#ffffff" stopOpacity="0.04" />
+          <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+
+      <path d={d} fill={`url(#${bodyId})`} />
+
+      <path d={d} fill={`url(#${sheenId})`} />
+
+      <path
+        d={d}
+        fill="none"
+        stroke="rgba(255,255,255,0.08)"
+        strokeWidth={18}
+        strokeLinejoin="round"
+        strokeLinecap="round"
+      />
     </svg>
   );
 };

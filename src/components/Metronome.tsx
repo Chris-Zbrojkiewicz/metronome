@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
-import BpmPicker from './BpmPicker';
 import TimeSignaturePicker from './TimeSignaturePicker';
 import MetronomeOutline from './MetronomeOutline';
 import PlayButton from './PlayButton';
 import BeatBox from './BeatBox';
-import Timer from './Timer';
-import Metrum from './Metrum';
-
+import Display from './Display';
 interface MetronomeProps {
   bpm: number;
   beats: number;
@@ -45,29 +42,29 @@ const Metronome: React.FC<MetronomeProps> = ({
   };
 
   return (
-    <div className="relative w-full max-w-[650px] aspect-[986/1417] mx-auto overflow-hidden">
-      <MetronomeOutline />
-      <div className="absolute inset-0 flex flex-col">
-        <div className="flex flex-col justify-evenly items-center flex-[7] w-full max-w-[80%] px-4 sm:px-8 md:px-12 mx-auto">
-          <BpmPicker bpm={bpm} setBpm={handleBpmChange} />
+    <div className="relative w-full max-w-[600px] aspect-[1000/1400] metronome-wrap">
+      <MetronomeOutline className="absolute inset-0 block w-full h-full pointer-events-none select-none" />
+      <div className="relative z-10 flex flex-col h-full">
+        <div className="flex items-center justify-center flex-1 px-6">
+          <Display bpm={bpm} handleBpmChange={handleBpmChange} isPlaying={isPlaying} timerKey={timerKey} currentBeat={currentBeat} beats={beats} />
+        </div>
+        <div className="flex flex-col items-center flex-1 px-6 pb-6 justify-evenly">
           <PlayButton
             isPlaying={isPlaying}
             onStart={handleStart}
             onStop={onStop}
           />
-          <Timer isPlaying={isPlaying} key={timerKey} />
-        </div>
-        <div className="flex flex-col justify-evenly items-center flex-[3] w-full max-w-[80%] px-4 sm:px-8 md:px-12 mx-auto">
-          <Metrum currentBeat={currentBeat} beats={beats} />
-          <BeatBox beats={beats} currentBeat={currentBeat} />
-          <TimeSignaturePicker
-            beats={beats}
-            beatUnit={beatUnit}
-            onTimeSignatureChange={onTimeSignatureChange}
-          />
+          <div className="flex flex-col items-center gap-2">
+            <BeatBox beats={beats} currentBeat={currentBeat} />
+            <TimeSignaturePicker
+              beats={beats}
+              beatUnit={beatUnit}
+              onTimeSignatureChange={onTimeSignatureChange}
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
