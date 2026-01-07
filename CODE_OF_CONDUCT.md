@@ -20,7 +20,7 @@ Examples of unacceptable behavior:
 
 ## Enforcement
 
-Instances of abusive behavior may be reported to **[Chris Z](mailto:chris.z@aol.com)**.  
+Instances of abusive behavior may be reported to **[Chris Zbrojkiewicz](mailto:chris.z@aol.com)**.  
 All complaints will be reviewed and addressed appropriately.
 
 ---
