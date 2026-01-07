@@ -14,7 +14,7 @@ interface DisplayProps {
 
 const Display: React.FC<DisplayProps> = ({ bpm, handleBpmChange, isPlaying, timerKey, currentBeat, beats }) => {
     return (
-        <div className='mt-5 md:mt-10 md:h-120 h-85 w-50 md:w-70 display'>
+        <div className='w-40 mt-5 md:mt-10 md:h-120 h-75 md:w-70 display'>
             <BpmPicker bpm={bpm} setBpm={handleBpmChange} />
             <Metrum currentBeat={currentBeat} beats={beats} />
             <Timer isPlaying={isPlaying} key={timerKey} />
